@@ -17,11 +17,19 @@
             </statuses>
         </ObjectHeader>
 
+            <Text id="text" text="First line&#13;&#10;Second line" />
+
+            <Button
+                id="dashboardDetailButton"
+                text="Details anzeigen"
+                press=".onPressNavigateToDetails"
+                icon="sap-icon://detail-view"
+                type="Emphasized"
+                class="sapUiMediumMarginBegin"
+            />
         <Button id="PageCurrentEventsButton"
             text="{i18n>currentEventsButton}"
             press="onShowCurrentEvents" />
-
-        <Text id="text" text="First line&#13;&#10;Second line" />
 
         <Button
             id="detailButton"

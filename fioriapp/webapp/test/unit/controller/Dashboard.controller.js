@@ -13,4 +13,22 @@ sap.ui.define([
 		assert.ok(oAppController);
 	});
 
+	QUnit.test("Navigates to the details route when the dashboard button is pressed", function (assert) {
+		var oAppController = new Controller();
+		var oRouter = {
+			navTo: function (sRoute) {
+				assert.strictEqual(sRoute, "RouteDetails", "The details route is opened");
+			}
+		};
+		oAppController.getOwnerComponent = function () {
+			return {
+				getRouter: function () {
+					return oRouter;
+				}
+			};
+		};
+
+		oAppController.onPressNavigateToDetails();
+	});
+
 });
