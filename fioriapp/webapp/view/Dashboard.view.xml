@@ -2,5 +2,22 @@
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m">
     <Page id="page" title="{i18n>title}">
+
+        <ObjectHeader
+            id="objectCard"
+            title="{i18n>header}"
+            intro="{i18n>subheader}"
+            titleActive="true"
+            titlePress="onObjectCardPress">
+            <attributes>
+                <ObjectAttribute id="description" text="{i18n>description}" />
+            </attributes>
+            <statuses>
+                <ObjectStatus id="status" text="{i18n>status}" />
+            </statuses>
+        </ObjectHeader>
+
+        
+
     </Page>
 </mvc:View>
