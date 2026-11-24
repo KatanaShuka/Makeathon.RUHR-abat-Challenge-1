@@ -1,4 +1,4 @@
-<mvc:View controllerName="fioriapp.controller.Dashboard"
+<mvc:View xmlns:columnmenu="sap.m.table.columnmenu" controllerName="fioriapp.controller.Dashboard"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m">
     <Page id="dashboard" title="{i18n>title}">
@@ -38,6 +38,9 @@
             icon="sap-icon://detail-view"
             type="Emphasized"
             class="sapUiMediumMarginBegin" />
+
+        <columnmenu:Menu id="menu">
+        </columnmenu:Menu>
         </VBox>
 
     </Page>
