@@ -17,15 +17,10 @@
             </statuses>
         </ObjectHeader>
 
-<<<<<<< HEAD
-        <Button
-            text="{i18n>currentEventsButton}"
-            press="onShowCurrentEvents" />
-=======
             <Text id="text" text="First line&#13;&#10;Second line" />
 
             <Button
-                id="detailButton"
+                id="dashboardDetailButton"
                 text="Details anzeigen"
                 press=".onPressNavigateToDetails"
                 icon="sap-icon://detail-view"
@@ -33,7 +28,6 @@
                 class="sapUiMediumMarginBegin"
             />
         </VBox>
->>>>>>> 9016abb72fe71a9f90a4d65038b33d729b056712
 
     </Page>
 </mvc:View>
