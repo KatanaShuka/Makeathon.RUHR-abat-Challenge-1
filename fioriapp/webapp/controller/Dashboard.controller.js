@@ -5,6 +5,10 @@ sap.ui.define([
 
     return Controller.extend("fioriapp.controller.Dashboard", {
         onInit() {
+        },
+
+        onShowCurrentEvents() {
+            this.getOwnerComponent().getRouter().navTo("RouteCurrentEvents");
         }
     });
 });

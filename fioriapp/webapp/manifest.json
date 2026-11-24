@@ -79,12 +79,23 @@
           "target": [
             "TargetDashboard"
           ]
+        },
+        {
+          "name": "RouteCurrentEvents",
+          "pattern": "currentEvents",
+          "target": [
+            "TargetCurrentEvents"
+          ]
         }
       ],
       "targets": {
         "TargetDashboard": {
           "id": "Dashboard",
           "name": "Dashboard"
+        },
+        "TargetCurrentEvents": {
+          "id": "currentEvents",
+          "name": "currentEvents"
         }
       }
     },

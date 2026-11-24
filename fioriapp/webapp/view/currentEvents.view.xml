@@ -1,7 +1,12 @@
 <mvc:View controllerName="fioriapp.controller.currentEvents"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m">
-    <Page id="currentEvents" title="{i18n>title}">
+    <Page id="currentEvents4" title="{i18n>title}">
+
+    <VBox id="TestContent">
+        <Label id="L"  text="Das ist ein Label." class="TestContentText"/>
+    
+    </VBox>
 
     </Page>
 </mvc:View>
