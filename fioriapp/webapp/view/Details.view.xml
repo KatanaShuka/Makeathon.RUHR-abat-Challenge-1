@@ -2,8 +2,14 @@
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m">
     <Page id="details" title="{i18n>title}">
-        <Table id="details-table">
+        <HBox id="details-hbox">
+            <Title id="details-title">Tour ID</Title>
+            <Text id="details-container">Container/Spedition</Text>
+            <Table id="details-table">
+            </Table>
+        </HBox>
+
         
-        </Table>
+        
     </Page>
 </mvc:View>
