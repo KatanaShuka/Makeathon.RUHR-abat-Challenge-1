@@ -7,6 +7,10 @@ sap.ui.define([
   return Controller.extend("fioriapp.controller.Dashboard", {
     navTo: function(route) {
       this.getOwnerComponent().getRouter().navTo(route);
+    },
+
+    onShowCurrentEvents: function() {
+      this.navTo("RouteCurrentEvents");
     }
   });
 });
