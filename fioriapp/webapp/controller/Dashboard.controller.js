@@ -8,8 +8,8 @@ sap.ui.define([
       this.getOwnerComponent().getRouter().navTo(route);
     },
 
-    onPressNavigateToDetails: function() {
-      this.navTo("RouteDetails");
+    onShowCurrentEvents: function() {
+      this.navTo("RouteCurrentEvents");
     }
   });
 });

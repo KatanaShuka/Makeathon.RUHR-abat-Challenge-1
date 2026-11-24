@@ -27,6 +27,17 @@
                 type="Emphasized"
                 class="sapUiMediumMarginBegin"
             />
+        <Button id="PageCurrentEventsButton"
+            text="{i18n>currentEventsButton}"
+            press="onShowCurrentEvents" />
+
+        <Button
+            id="detailButton"
+            text="Details anzeigen"
+            press=".onPressNavigateToDetails"
+            icon="sap-icon://detail-view"
+            type="Emphasized"
+            class="sapUiMediumMarginBegin" />
         </VBox>
 
     </Page>
