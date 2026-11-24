@@ -5,7 +5,35 @@
 
     <VBox id="TestContent">
         <Label id="L"  text="Das ist ein Label." class="TestContentText"/>
-        <geo:GeoMap id="map" width="100%" height="400px" xmlns:geo="sap.ui.vbm">
+        <geo:GeoMap
+            id="map"
+            width="100%"
+            height="400px"
+            xmlns:geo="sap.ui.vbm"
+            mapConfiguration='{
+                "MapProvider": [{
+                    "name": "OpenStreetMap",
+                    "description": "OpenStreetMap",
+                    "copyright": "© OpenStreetMap contributors",
+                    "copyrightLink": "https://www.openstreetmap.org/copyright",
+                    "tileX": "256",
+                    "tileY": "256",
+                    "maxLOD": "19",
+                    "Source": [{
+                        "id": "osm",
+                        "url": "https://tile.openstreetmap.org/{LOD}/{X}/{Y}.png"
+                    }]
+                }],
+                "MapLayerStacks": [{
+                    "name": "DEFAULT",
+                    "MapLayer": {
+                        "name": "OpenStreetMap",
+                        "refMapProvider": "OpenStreetMap",
+                        "opacity": "1"
+                    }
+                }]
+            }'
+            refMapLayerStack="DEFAULT">
             <geo:geoJsonLayers>
                 <geo:GeoJsonLayer srcURL="https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson" />
             </geo:geoJsonLayers>
