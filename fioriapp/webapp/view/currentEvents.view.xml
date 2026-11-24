@@ -5,14 +5,11 @@
 
     <VBox id="TestContent">
         <Label id="L"  text="Das ist ein Label." class="TestContentText"/>
-        <geomap:Map id="map" width="100%" height="400px" xmlns:geo="sap.ui.vbm">
-            <geo:layers>
-                <geo:Layer name="layer1" type="GeoJSON" url="https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson"/>
-            </geo:layers>
-            <geo:vos>
-                <geo:Area id="area1" pos="0;0;0" color="blue" scale="1" layer="layer1"/>
-            </geo:vos>
-        </geomap:Map>
+        <geo:GeoMap id="map" width="100%" height="400px" xmlns:geo="sap.ui.vbm">
+            <geo:geoJsonLayers>
+                <geo:GeoJsonLayer srcURL="https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson" />
+            </geo:geoJsonLayers>
+        </geo:GeoMap>
     </VBox>
 
     </Page>
