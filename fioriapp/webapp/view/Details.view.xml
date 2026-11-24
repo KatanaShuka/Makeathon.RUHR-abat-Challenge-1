@@ -3,10 +3,7 @@
     xmlns="sap.m">
     <Page id="details" title="{i18n>title}">
         <HBox id="details-hbox">
-            <Title id="details-title">Tour ID</Title>
-            <Text id="details-container">Container/Spedition</Text>
-            <Table id="details-table">
-            </Table>
+            <Button id="test" text="HI"></Button>
         </HBox>
 
         

@@ -90,7 +90,7 @@
         },
         {
           "name": "RouteDetails",
-          "pattern": "details",
+          "pattern": "Details",
           "target": [
             "TargetDetails"
           ]
@@ -106,7 +106,7 @@
           "name": "currentEvents"
         },
         "TargetDetails": {
-          "id": "Details",
+          "id": "details",
           "name": "Details"
         }
       }

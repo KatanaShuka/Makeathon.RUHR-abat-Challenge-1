@@ -21,11 +21,8 @@
 
             <Button
                 id="dashboardDetailButton"
-                text="Details anzeigen"
-                press=".onPressNavigateToDetails"
-                icon="sap-icon://detail-view"
-                type="Emphasized"
-                class="sapUiMediumMarginBegin"
+                text="{i18n>ShowDetails}"
+                press="onShowDetails"
             />
         <Button id="PageCurrentEventsButton"
             text="{i18n>currentEventsButton}"
