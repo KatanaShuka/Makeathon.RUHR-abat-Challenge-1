@@ -1,11 +1,11 @@
 <mvc:View controllerName="fioriapp.controller.Dashboard"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m">
-    <Page id="page" title="{i18n>title}">
-
+    <Page id="dashboard" title="{i18n>title}">
+        <VBox id="vbox">
         <ObjectHeader
             id="objectCard"
-            title="{i18n>header}"
+            title="{i18n>Willkommen!}"
             intro="{i18n>subheader}"
             titleActive="true"
             titlePress="onObjectCardPress">
@@ -17,9 +17,23 @@
             </statuses>
         </ObjectHeader>
 
+<<<<<<< HEAD
         <Button
             text="{i18n>currentEventsButton}"
             press="onShowCurrentEvents" />
+=======
+            <Text id="text" text="First line&#13;&#10;Second line" />
+
+            <Button
+                id="detailButton"
+                text="Details anzeigen"
+                press=".onPressNavigateToDetails"
+                icon="sap-icon://detail-view"
+                type="Emphasized"
+                class="sapUiMediumMarginBegin"
+            />
+        </VBox>
+>>>>>>> 9016abb72fe71a9f90a4d65038b33d729b056712
 
     </Page>
 </mvc:View>

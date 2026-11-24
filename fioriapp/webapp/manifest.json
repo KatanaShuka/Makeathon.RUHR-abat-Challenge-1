@@ -86,6 +86,16 @@
           "target": [
             "TargetCurrentEvents"
           ]
+<<<<<<< HEAD
+=======
+        },
+        {
+          "name": "RouteDetails",
+          "pattern": "details",
+          "target": [
+            "TargetDetails"
+          ]
+>>>>>>> 9016abb72fe71a9f90a4d65038b33d729b056712
         }
       ],
       "targets": {
@@ -94,8 +104,17 @@
           "name": "Dashboard"
         },
         "TargetCurrentEvents": {
+<<<<<<< HEAD
           "id": "currentEvents",
           "name": "currentEvents"
+=======
+          "id": "CurrentEvents",
+          "name": "CurrentEvents"
+        },
+        "TargetDetails": {
+          "id": "Details",
+          "name": "Details"
+>>>>>>> 9016abb72fe71a9f90a4d65038b33d729b056712
         }
       }
     },
