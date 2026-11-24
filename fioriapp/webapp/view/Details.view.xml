@@ -1,0 +1,9 @@
+<mvc:View xmlns:vbm="sap.ui.vbm" controllerName="fioriapp.controller.Details"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="details" title="{i18n>title}">
+        <Table id="details-table">
+        
+        </Table>
+    </Page>
+</mvc:View>
