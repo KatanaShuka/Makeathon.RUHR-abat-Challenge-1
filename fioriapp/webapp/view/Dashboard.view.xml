@@ -34,7 +34,7 @@
         <Button
             id="detailButton"
             text="Details anzeigen"
-            press=".onPressNavigateToDetails"
+            press="onShowDetails"
             icon="sap-icon://detail-view"
             type="Emphasized"
             class="sapUiMediumMarginBegin" />

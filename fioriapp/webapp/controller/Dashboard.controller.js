@@ -10,6 +10,10 @@ sap.ui.define([
 
     onShowCurrentEvents: function() {
       this.navTo("RouteCurrentEvents");
+    },
+
+    onShowDetails: function() {
+      this.navTo("RouteDetails")
     }
   });
 });
