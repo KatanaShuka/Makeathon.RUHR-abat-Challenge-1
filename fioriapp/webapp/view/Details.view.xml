@@ -11,16 +11,50 @@
                 titlePress="onObjectCardPress"
             >
             </ObjectHeader>
-            <HBox id="hbox" alignContent="Center" alignItems="Center" width="80vw">
-                <object:Panel 
-                id="info" 
-                width="40vw" 
+            <HBox
+                id="hbox"
+                width="100%"
+                justifyContent="Center"
+                alignItems="Start"
+                class="sapUiLargeMarginTop">
+                <object:Panel
+                id="info"
+                width="100%"
                 expandable="false"
                 headerText="Informations"
-                >
-                <object:Text text="This is more data\nAnd more stuff to read\nand even more stuff\nyou know the drill" id="sgksfgp"/>   
+                class="sapUiMediumMarginEnd">
+
+                    <VBox class="sapUiMediumMargin">
+
+                        <Title
+                            text="Tourinformationen"
+                            level="H3"/>
+
+                        <Text
+                            id="detailStart"
+                            text="Tour-Start: -"/>
+
+                        <Text
+                            id="detailEnd"
+                            text="Tour-End: -"/>
+
+                        <Text
+                            id="detailContainer"
+                            text="Container: -"/>
+
+                        <Text
+                            id="detailStatus"
+                            text="Status: -"/>
+
+                    </VBox>
+
                 </object:Panel>
-                <table:Table id="details-table" width="40vw">
+                <table:Table
+                    id="details-table"
+                    width="100%"
+                    mode="SingleSelectMaster"
+                    selectionChange="onSelectionChange"
+                    class="sapUiMediumMarginBegin">
                     <table:columns>
                         <table:Column id="details-table-routestart" width="12em" visible="true">
                             <Text id="demo-data" text="Tour-Start"/>
