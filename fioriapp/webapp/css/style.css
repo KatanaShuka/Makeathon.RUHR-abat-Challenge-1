@@ -3,10 +3,13 @@
     height: 100%;
 }
 
-#map {
-    width: 100%;
-    min-height: calc(100vh - 230px);
+.mapFrame .vbi-main {
     border: 1px solid #d9d9d9;
     border-radius: 4px;
     overflow: hidden;
+}
+
+.routesTable {
+    margin: 1rem 10mm;
+    width: calc(100% - 20mm) !important;
 }

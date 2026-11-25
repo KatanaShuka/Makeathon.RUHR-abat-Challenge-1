@@ -100,12 +100,76 @@ sap.ui.define([
                     oMap.zoomToGeoPosition(9.97, 53.54, 4);
                 }
 
-                this.renderToursAndEvents([
-                    { source: "PT_BEANR", destination: "PT_DEHAM", tourId: "Tour ANT-001" },
-                    { source: "PT_NLRTM", destination: "PT_DEHAM", tourId: "Tour RTM-002" },
-                    { source: "PT_DEBRV", destination: "PT_DEHAM", tourId: "Tour BRV-003" },
-                    { source: "PT_GBFXT", destination: "PT_DEHAM", tourId: "Tour FXT-004" }
-                ], [
+                const aAvailableRoutes = [
+                    {
+                        routeId: "NSEA-001",
+                        tours: [
+                            {
+                                tourId: "T-ANT-RTM",
+                                source: "PT_BEANR",
+                                destination: "PT_NLRTM",
+                                seaWaypoints: [
+                                    { longitude: 4.16, latitude: 51.36 },
+                                    { longitude: 3.75, latitude: 51.45 },
+                                    { longitude: 3.35, latitude: 51.55 },
+                                    { longitude: 3.15, latitude: 51.85 },
+                                    { longitude: 3.45, latitude: 52.05 },
+                                    { longitude: 3.95, latitude: 51.98 }
+                                ]
+                            },
+                            {
+                                tourId: "T-RTM-HAM",
+                                source: "PT_NLRTM",
+                                destination: "PT_DEHAM"
+                            }
+                        ]
+                    },
+                    {
+                        routeId: "NSEA-002",
+                        tours: [
+                            {
+                                tourId: "T-FXT-BRV",
+                                source: "PT_GBFXT",
+                                destination: "PT_DEBRV",
+                                seaWaypoints: [
+                                    { longitude: 1.55, latitude: 51.95 },
+                                    { longitude: 1.80, latitude: 52.10 },
+                                    { longitude: 2.20, latitude: 52.25 },
+                                    { longitude: 2.90, latitude: 52.50 },
+                                    { longitude: 3.70, latitude: 52.85 },
+                                    { longitude: 4.80, latitude: 53.35 },
+                                    { longitude: 6.20, latitude: 53.80 },
+                                    { longitude: 7.30, latitude: 54.05 },
+                                    { longitude: 7.80, latitude: 54.05 },
+                                    { longitude: 8.20, latitude: 53.95 },
+                                    { longitude: 8.45, latitude: 53.65 }
+                                ]
+                            },
+                            {
+                                tourId: "T-BRV-HAM",
+                                source: "PT_DEBRV",
+                                destination: "PT_DEHAM"
+                            }
+                        ]
+                    }
+                ];
+                const aTours = aAvailableRoutes.flatMap((oRoute) => oRoute.tours);
+                const oMapModel = this.getView().getModel("map");
+                oMapModel.setProperty("/routes", aAvailableRoutes.map((oRoute) => {
+                    const aStops = [
+                        oRoute.tours[0].source,
+                        ...oRoute.tours.map((oTour) => oTour.destination)
+                    ].map((sPortId) => this._getPort(sPortId).name);
+
+                    return {
+                        routeId: oRoute.routeId,
+                        tourSequence: oRoute.tours.map((oTour) => oTour.tourId).join(" → "),
+                        stops: aStops.join(" → "),
+                        tourCount: oRoute.tours.length
+                    };
+                }));
+
+                this.renderToursAndEvents(aTours, [
                     { location: "PT_BEANR", title: "NAT", level: "3" },
                     { location: "PT_NLRTM", title: "WEA", level: "2" },
                     { location: "PT_GBFXT", title: "OPS", level: "1" },
