@@ -1,1 +1,12 @@
 /* Enter your custom styles here */
+#currentEvents4 {
+    height: 100%;
+}
+
+#map {
+    width: 100%;
+    min-height: calc(100vh - 230px);
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    overflow: hidden;
+}
