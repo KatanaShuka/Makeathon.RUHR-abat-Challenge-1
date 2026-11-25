@@ -1,10 +1,94 @@
-<mvc:View xmlns:vbm="sap.ui.vbm" controllerName="fioriapp.controller.Details"
+<mvc:View xmlns:object="sap.m" xmlns:core="sap.ui.core" xmlns:table="sap.m" xmlns:columnmenu="sap.m.table.columnmenu" xmlns:vbm="sap.ui.vbm" controllerName="fioriapp.controller.Details"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m">
     <Page id="details" title="{i18n>title}">
-        <HBox id="details-hbox">
-            <Button id="test" text="HI"></Button>
-        </HBox>
+        <VBox id="details-hbox">
+            <ObjectHeader
+                id="details-card"
+                title="{i18n>Supply-ID!}"
+                intro="{i18n>Suply-Status}"
+                titleActive="true"
+                titlePress="onObjectCardPress"
+            >
+            </ObjectHeader>
+            <HBox id="hbox" alignContent="Center" alignItems="Center" width="80vw">
+                <object:Panel 
+                id="info" 
+                width="40vw" 
+                expandable="false"
+                headerText="Informations"
+                >
+                <object:Text text="This is more data\nAnd more stuff to read\nand even more stuff\nyou know the drill" id="sgksfgp"/>   
+                </object:Panel>
+                <table:Table id="details-table" width="40vw">
+                    <table:columns>
+                        <table:Column id="details-table-routestart" width="12em" visible="true">
+                            <Text id="demo-data" text="Tour-Start"/>
+                        </table:Column>
+                        <table:Column id="details-table-routeend" width="12em" visible="true">
+                            <Text id="demo-data2" text="Tour-End"/>
+                        </table:Column>
+                        <table:Column id="details-table-container" width="12em" visible="true">
+                            <Text id="demo-data3" text="Container"/>
+                        </table:Column>
+                        <table:Column id="details-table-status" width="12em" visible="true">
+                            <Text id="demo-data4" text="Status"/>
+                        </table:Column>
+                    </table:columns>
+                    <table:items>
+                        <table:ColumnListItem id="samble">
+                            <table:cells>
+                                <Text text="Bremen" id="data-location"/>
+                                <Text text="Amsterdamm" id="data-location-dest"/>
+                                <Text text="CNT-523" id="data-container"/>
+                                <core:Icon src="sap-icon://sys-enter" id="data-status" color="Green4"/>
+                            </table:cells>
+                        </table:ColumnListItem>
+                        <table:ColumnListItem id="samble2">
+                            <table:cells>
+                                <Text text="Amsterdamm" id="data-location2"/>
+                                <Text text="Sidney" id="data-location-dest2"/>
+                                <Text text="CNT-523" id="data-container2"/>
+                                <core:Icon src="sap-icon://warning" id="data-status2" color="error"/>
+                            </table:cells>
+                        </table:ColumnListItem>
+                        <table:ColumnListItem id="samble3">
+                            <table:cells>
+                                <Text text="Sidney" id="data-location3"/>
+                                <Text text="Deposite" id="data-location-dest3"/>
+                                <Text text="CNT-523" id="data-container3"/>
+                                <core:Icon src="sap-icon://accelerated" id="data-status3" color="Mango5"/>
+                            </table:cells>
+                        </table:ColumnListItem>
+                        <table:ColumnListItem id="samble4">
+                            <table:cells>
+                                <Text text="Sidney" id="data-location4"/>
+                                <Text text="Deposite" id="data-location-dest4"/>
+                                <Text text="CNT-523" id="data-container4"/>
+                                <core:Icon src="sap-icon://accelerated" id="data-status4" color="Mango5"/>
+                            </table:cells>
+                        </table:ColumnListItem>
+                        <table:ColumnListItem id="samble5">
+                            <table:cells>
+                                <Text text="Sidney" id="data-location5"/>
+                                <Text text="Deposite" id="data-location-dest5"/>
+                                <Text text="CNT-523" id="data-container5"/>
+                                <core:Icon src="sap-icon://accelerated" id="data-status5" color="Mango5"/>
+                            </table:cells>
+                        </table:ColumnListItem>
+                        <table:ColumnListItem id="samble6">
+                            <table:cells>
+                                <Text text="Sidney" id="data-location6"/>
+                                <Text text="Deposite" id="data-location-dest6"/>
+                                <Text text="CNT-523" id="data-container6"/>
+                                <core:Icon src="sap-icon://accelerated" id="data-status6" color="Mango5"/>
+                            </table:cells>
+                        </table:ColumnListItem>
+                    </table:items>
+                    
+                </table:Table>
+            </HBox>
+        </VBox>
 
         
         
