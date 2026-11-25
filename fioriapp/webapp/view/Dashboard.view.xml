@@ -1,4 +1,4 @@
-<mvc:View xmlns:core="sap.ui.core" xmlns:f="sap.f" xmlns:carousel="sap.m" xmlns:columnmenu="sap.m.table.columnmenu" xmlns:table="sap.m" controllerName="fioriapp.controller.Dashboard"
+<mvc:View xmlns:core="sap.ui.core" xmlns:f="sap.f" xmlns:cards="sap.f.cards" xmlns:carousel="sap.m" xmlns:columnmenu="sap.m.table.columnmenu" xmlns:table="sap.m" controllerName="fioriapp.controller.Dashboard"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m">
     <Page id="dashboard" title="{i18n>title}">
@@ -6,9 +6,10 @@
             <ObjectHeader
                 id="objectCard"
                 title="{i18n>Herzlich Willkommen, Logistiker/in!}"
-                intro="25.11.2026"
+                intro="{i18n>introDate}"
                 titleActive="true"
-                titlePress="onObjectCardPress">
+                titlePress="onObjectCardPress"
+                class="sapUiNoMarginBottom">
                 <attributes>
                     <ObjectAttribute id="description" text="Hier können Sie Ihre Frachten verwalten." />
                 </attributes>
@@ -19,37 +20,45 @@
 
 
             <HBox id="contentHBox">
-                <carousel:Carousel id="carousel" height="200px" width="100%">
+                <carousel:Carousel id="carousel" height="75%" width="75%" class="sapUiContentPadding">
                     <pages>
-                        <f:Card id="card1" header="{i18n>Ereignis 1}">
+                        <f:Card id="card1">
                             <f:header>
-                                <Image id="event1Image" src="https://cdn.pixabay.com/photo/2018/05/30/00/24/thunderstorm-3440450_1280.jpg" width="100%" height="100%"/>
+                                <cards:Header id="event1Header" title="{i18n>Ereignis 1}" />
                             </f:header>
                             <f:content>
-                                <Text id="event1Description" text="{i18n>Ereignis 1 Beschreibung}" />
-                                
+                                <VBox id="event1Content">
+                                    <Image id="event1Image" src="https://cdn.pixabay.com/photo/2018/05/30/00/24/thunderstorm-3440450_1280.jpg" width="100%" height="100%"/>
+                                    <Text id="event1Description" text="{i18n>Ereignis 1 Beschreibung}" />
+                                </VBox>
                             </f:content>
                         </f:Card>
-                        <f:Card id="card2" header="{i18n>Ereignis 2}">
+                        <f:Card id="card2">
                             <f:header>
-                                <Image id="event2Image" src="https://cdn.pixabay.com/photo/2016/10/25/14/03/clouds-1768967_1280.jpg" width="100%" height="100%"/>
+                                <cards:Header id="event2Header" title="{i18n>Ereignis 2}" />
                             </f:header>
                             <f:content>
-                                <Text id="event2Description" text="{i18n>Ereignis 2 Beschreibung}" />
+                                <VBox id="event2Content">
+                                    <Image id="event2Image" src="https://cdn.pixabay.com/photo/2016/10/25/14/03/clouds-1768967_1280.jpg" width="100%" height="100%"/>
+                                    <Text id="event2Description" text="{i18n>Ereignis 2 Beschreibung}" />
+                                </VBox>
                             </f:content>
                         </f:Card>
-                        <f:Card id="card3" header="{i18n>Ereignis 3}">
+                        <f:Card id="card3">
                             <f:header>
-                                <Image id="event3Image" src="https://cdn.pixabay.com/photo/2016/10/25/12/28/thunderstorm-1768742_1280.jpg" width="100%" height="100%"/>
+                                <cards:Header id="event3Header" title="{i18n>Ereignis 3}" />
                             </f:header>
                             <f:content>
-                                <Text id="event3Description" text="{i18n>Ereignis 3 Beschreibung}" />
+                                <VBox id="event3Content">
+                                    <Image id="event3Image" src="https://cdn.pixabay.com/photo/2016/10/25/12/28/thunderstorm-1768742_1280.jpg" width="100%" height="100%"/>
+                                    <Text id="event3Description" text="{i18n>Ereignis 3 Beschreibung}" />
+                                </VBox>
                             </f:content>
                         </f:Card>
                     </pages>
                 </carousel:Carousel>
 
-                <VBox id="tableVBox" class="sapUiSmallMarginBegin">
+                <VBox id="tableVBox" width="100%" height="100%" class="sapUiContentPadding sapUiTinyMarginBegin sapUiTinyMarginEnd">
                     <OverflowToolbar id="overflowToolbar">
                             <Title id="title" text="{i18n>Frachtenübersicht}" level="H2"/>
                             
@@ -59,41 +68,49 @@
                     <table:Table id="frachtenTable">
                         <table:columns>
                         <table:Column id="column0">
-                                <Text text="Status" />
+                                <Text id="column0Text" text="Status" />
                             </table:Column>
                             <table:Column id="column1">
-                                <Text text="Fracht-ID" />
+                                <Text id="column1Text" text="Fracht-ID" />
                             </table:Column>
                             <table:Column id="column2">
-                                <Text text="Absender" />
+                                <Text id="column2Text" text="Absender" />
                             </table:Column>
                             <table:Column id="column3">
-                                <Text text="Zielort" />
+                                <Text id="column3Text" text="Zielort" />
                             </table:Column>
                         </table:columns>
                         <table:items>
                             <table:ColumnListItem id="sampleFracht1">
                                 <table:cells>
                                     <core:Icon id="icon1" src="sap-icon://warning" color="Error"></core:Icon>
-                                    <Text text="Fracht 0013" />
-                                    <Text text="Logistik ABC" />
-                                    <Text text="Herne" />
+                                    <Text id="sampleFracht1Id" text="Fracht 0013" />
+                                    <Text id="sampleFracht1Sender" text="Logistik ABC" />
+                                    <Text id="sampleFracht1Destination" text="Herne" />
                                 </table:cells>
                             </table:ColumnListItem>
                             <table:ColumnListItem id="sampleFracht2">
                                 <table:cells>
                                     <core:Icon id="icon2" src="sap-icon://warning" color="Error"></core:Icon>
-                                    <Text text="Fracht 2035" />
-                                    <Text text="Logistik ABC" />
-                                    <Text text="Herne" />
+                                    <Text id="sampleFracht2Id" text="Fracht 2035" />
+                                    <Text id="sampleFracht2Sender" text="Logistik ABC" />
+                                    <Text id="sampleFracht2Destination" text="Herne" />
                                 </table:cells>
                             </table:ColumnListItem>
                             <table:ColumnListItem id="sampleFracht3">
                                 <table:cells>
                                     <core:Icon id="icon3" src="sap-icon://accept" color="Success"></core:Icon>
-                                    <Text text="Fracht 2846" />
-                                    <Text text="Logistik ABC" />
-                                    <Text text="Herne" />
+                                    <Text id="sampleFracht3Id" text="Fracht 2846" />
+                                    <Text id="sampleFracht3Sender" text="Logistik ABC" />
+                                    <Text id="sampleFracht3Destination" text="Herne" />
+                                </table:cells>
+                            </table:ColumnListItem>
+                            <table:ColumnListItem id="sampleFracht4">
+                                <table:cells>
+                                    <core:Icon id="icon4" src="sap-icon://accept" color="Success"></core:Icon>
+                                    <Text id="sampleFracht4Id" text="Fracht 2846" />
+                                    <Text id="sampleFracht4Sender" text="Logistik ABC" />
+                                    <Text id="sampleFracht4Destination" text="Herne" />
                                 </table:cells>
                             </table:ColumnListItem>
                         </table:items>
@@ -101,7 +118,7 @@
                 </VBox>
             </HBox>
 
-            <HBox> 
+            <HBox id="buttonHBox" class="sapUiContentPadding"> 
                 <Button id="pageCurrentEventsButton"
                     text="{i18n>currentEventsButton}"
                     press="onShowCurrentEvents" 
@@ -113,6 +130,7 @@
                     press="onShowDetails"
                     icon="sap-icon://detail-view"
                     type="Emphasized"
+                    width="11rem"
                     class="sapUiMediumMarginBegin" 
                 />
             </HBox> 
