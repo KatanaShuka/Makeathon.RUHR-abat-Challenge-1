@@ -19,3 +19,6 @@ mta_archives/
 @cds-models
 
 notes.md
+
+db.sqlite-shm
+db.sqlite-wal
