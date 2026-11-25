@@ -1,73 +1,96 @@
-<mvc:View xmlns:f="sap.f" xmlns:carousel="sap.m" xmlns:columnmenu="sap.m.table.columnmenu" controllerName="fioriapp.controller.Dashboard"
+<mvc:View xmlns:core="sap.ui.core" xmlns:f="sap.f" xmlns:carousel="sap.m" xmlns:columnmenu="sap.m.table.columnmenu" xmlns:table="sap.m" controllerName="fioriapp.controller.Dashboard"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m">
     <Page id="dashboard" title="{i18n>title}">
         <VBox id="vbox">
-        <ObjectHeader
-            id="objectCard"
-            title="{i18n>Herzlich Willkommen, Logistiker/in!}"
-            intro="{i18n>subheader}"
-            titleActive="true"
-            titlePress="onObjectCardPress">
-            <attributes>
-                <ObjectAttribute id="description" text="{i18n>description}" />
-            </attributes>
-            <statuses>
-                <ObjectStatus id="status" text="{i18n>status}" />
-            </statuses>
-        </ObjectHeader>
+            <ObjectHeader
+                id="objectCard"
+                title="{i18n>Herzlich Willkommen, Logistiker/in!}"
+                intro="25.11.2026"
+                titleActive="true"
+                titlePress="onObjectCardPress">
+                <attributes>
+                    <ObjectAttribute id="description" text="Hier können Sie Ihre Frachten verwalten." />
+                </attributes>
+                <statuses>
+                    <ObjectStatus id="status" text="{i18n>status}" />
+                </statuses>
+            </ObjectHeader>
 
-        <f:Card 
-            id="ereigniscard"
-            header="{i18n>Aktuelle Ereignisse}"
-        >
-        </f:Card>
-            <carousel:Carousel id="carousel" height="200px" width="100%">
-                <pages>
-                    <f:Card id="card1" header="{i18n>Ereignis 1}">
-                        <f:content>
-                            <Text id="event1Description" text="{i18n>Ereignis 1 Beschreibung}" />
-                        </f:content>
-                    </f:Card>
-                    <f:Card id="card2" header="{i18n>Ereignis 2}">
-                        <f:content>
-                            <Text id="event2Description" text="{i18n>Ereignis 2 Beschreibung}" />
-                        </f:content>
-                    </f:Card>
-                    <f:Card id="card3" header="{i18n>Ereignis 3}">
-                        <f:content>
-                            <Text id="event3Description" text="{i18n>Ereignis 3 Beschreibung}" />
-                        </f:content>
-                    </f:Card>
-                </pages>
-            </carousel:Carousel>
-        
 
-        <Text id="text" text="First line&#13;&#10;Second line" />
+            <HBox id="contentHBox">
+                <carousel:Carousel id="carousel" height="200px" width="100%">
+                    <pages>
+                        <f:Card id="card1" header="{i18n>Ereignis 1}">
+                            <f:content>
+                                <Text id="event1Description" text="{i18n>Ereignis 1 Beschreibung}" />
+                            </f:content>
+                        </f:Card>
+                        <f:Card id="card2" header="{i18n>Ereignis 2}">
+                            <f:content>
+                                <Text id="event2Description" text="{i18n>Ereignis 2 Beschreibung}" />
+                            </f:content>
+                        </f:Card>
+                        <f:Card id="card3" header="{i18n>Ereignis 3}">
+                            <f:content>
+                                <Text id="event3Description" text="{i18n>Ereignis 3 Beschreibung}" />
+                            </f:content>
+                        </f:Card>
+                    </pages>
+                </carousel:Carousel>
 
-        <Button
-            id="dashboardDetailButton"
-            text="{i18n>ShowDetails}"
-            press="onShowDetails"
-        />
+                <VBox id="tableVBox" class="sapUiSmallMarginBegin">
+                    <OverflowToolbar id="overflowToolbar">
+                            <Title id="title" text="{i18n>Frachtenübersicht}" level="H2"/>
+                            
+                            <Button id="addFrachtButton" text="{i18n>AddFracht}" press="onAddFrachtPress"/>
+                            <Button id="deleteFrachtButton" text="{i18n>DeleteFracht}" press="onDeleteFrachtPress"/>
+                    </OverflowToolbar>
+                    <table:Table id="frachtenTable">
+                        <table:columns>
+                        <table:Column id="column0">
+                                <Text text="Status" />
+                            </table:Column>
+                            <table:Column id="column1">
+                                <Text text="Fracht-ID" />
+                            </table:Column>
+                            <table:Column id="column2">
+                                <Text text="Absender" />
+                            </table:Column>
+                            <table:Column id="column3">
+                                <Text text="Zielort" />
+                            </table:Column>
+                        </table:columns>
+                        <table:items>
+                            <table:ColumnListItem id="sampleFracht">
+                                <table:cells>
+                                    <core:Icon id="icon" src="sap-icon://warning" color="Error"></core:Icon>
+                                    <Text text="Fracht 0013" />
+                                    <Text text="Logistik ABC" />
+                                    <Text text="Herne" />
+                                </table:cells>
+                            </table:ColumnListItem>
+                        </table:items>
+                    </table:Table>
+                </VBox>
+            </HBox>
 
-        <Button id="PageCurrentEventsButton"
-            text="{i18n>currentEventsButton}"
-            press="onShowCurrentEvents" 
-        />
+            <HBox> 
+                <Button id="pageCurrentEventsButton"
+                    text="{i18n>currentEventsButton}"
+                    press="onShowCurrentEvents" 
+                />
 
-        <Button
-            id="detailButton"
-            text="Details anzeigen"
-            press="onShowDetails"
-            icon="sap-icon://detail-view"
-            type="Emphasized"
-            class="sapUiMediumMarginBegin" 
-        />
-
-        <columnmenu:Menu id="menu">
-        </columnmenu:Menu>
+                <Button
+                    id="detailButton"
+                    text="{i18n>showDetails}"
+                    press="onShowDetails"
+                    icon="sap-icon://detail-view"
+                    type="Emphasized"
+                    class="sapUiMediumMarginBegin" 
+                />
+            </HBox> 
         </VBox>
-
+        
     </Page>
 </mvc:View>
