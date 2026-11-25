@@ -1,11 +1,11 @@
-<mvc:View xmlns:columnmenu="sap.m.table.columnmenu" controllerName="fioriapp.controller.Dashboard"
+<mvc:View xmlns:f="sap.f" xmlns:carousel="sap.m" xmlns:columnmenu="sap.m.table.columnmenu" controllerName="fioriapp.controller.Dashboard"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m">
     <Page id="dashboard" title="{i18n>title}">
         <VBox id="vbox">
         <ObjectHeader
             id="objectCard"
-            title="{i18n>Willkommen!}"
+            title="{i18n>Herzlich Willkommen, Logistiker/in!}"
             intro="{i18n>subheader}"
             titleActive="true"
             titlePress="onObjectCardPress">
@@ -17,16 +17,44 @@
             </statuses>
         </ObjectHeader>
 
-            <Text id="text" text="First line&#13;&#10;Second line" />
+        <f:Card 
+            id="ereigniscard"
+            header="{i18n>Aktuelle Ereignisse}"
+        >
+        </f:Card>
+            <carousel:Carousel id="carousel" height="200px" width="100%">
+                <pages>
+                    <f:Card id="card1" header="{i18n>Ereignis 1}">
+                        <f:content>
+                            <Text id="event1Description" text="{i18n>Ereignis 1 Beschreibung}" />
+                        </f:content>
+                    </f:Card>
+                    <f:Card id="card2" header="{i18n>Ereignis 2}">
+                        <f:content>
+                            <Text id="event2Description" text="{i18n>Ereignis 2 Beschreibung}" />
+                        </f:content>
+                    </f:Card>
+                    <f:Card id="card3" header="{i18n>Ereignis 3}">
+                        <f:content>
+                            <Text id="event3Description" text="{i18n>Ereignis 3 Beschreibung}" />
+                        </f:content>
+                    </f:Card>
+                </pages>
+            </carousel:Carousel>
+        
 
-            <Button
-                id="dashboardDetailButton"
-                text="{i18n>ShowDetails}"
-                press="onShowDetails"
-            />
+        <Text id="text" text="First line&#13;&#10;Second line" />
+
+        <Button
+            id="dashboardDetailButton"
+            text="{i18n>ShowDetails}"
+            press="onShowDetails"
+        />
+
         <Button id="PageCurrentEventsButton"
             text="{i18n>currentEventsButton}"
-            press="onShowCurrentEvents" />
+            press="onShowCurrentEvents" 
+        />
 
         <Button
             id="detailButton"
@@ -34,7 +62,8 @@
             press="onShowDetails"
             icon="sap-icon://detail-view"
             type="Emphasized"
-            class="sapUiMediumMarginBegin" />
+            class="sapUiMediumMarginBegin" 
+        />
 
         <columnmenu:Menu id="menu">
         </columnmenu:Menu>
