@@ -1,81 +1,101 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:table="sap.m" xmlns="sap.m" controllerName="fioriapp.controller.Details">
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:table="sap.m" xmlns:core="sap.ui.core" xmlns="sap.m" controllerName="fioriapp.controller.Details">
     <Page id="details" title="{i18n>title}">
-        <VBox id="details-hbox">
-            <ObjectHeader
-                id="details-card"
-                title="Tour auswählen"
-                intro="Tourdetails"/>
+        <VBox id="details-hbox" width="100%">
+            <Panel
+                id="routeSelectorPanel"
+                headerText="Route auswählen"
+                expandable="false"
+                class="sapUiSmallMarginBottom">
+                <VBox class="sapUiSmallMargin">
+                    <Label text="Route" labelFor="routeSelect"/>
+                    <Select
+                        id="routeSelect"
+                        width="30rem"
+                        selectedKey="{routes>/selectedRouteId}"
+                        change="onRouteChange"
+                        items="{routes>/routes}">
+                        <core:Item key="{routes>id}" text="{routes>label}"/>
+                    </Select>
+                    <Text
+                        text="{routes>/selectedTourCount} Touren in der ausgewählten Route"
+                        class="sapUiTinyMarginTop"/>
+                </VBox>
+            </Panel>
             <HBox
                 id="hbox"
                 width="100%"
-                justifyContent="Center"
                 alignItems="Start"
-                class="sapUiLargeMarginTop">
+                class="sapUiSmallMarginTop">
                 <Panel
-                id="info"
-                width="100%"
-                expandable="false"
-                headerText="Informations"
-                class="sapUiMediumMarginEnd">
-
+                    id="info"
+                    width="100%"
+                    expandable="false"
+                    headerText="Tourdetails">
+                    <layoutData>
+                        <FlexItemData baseSize="55%" growFactor="0" shrinkFactor="0"/>
+                    </layoutData>
                     <VBox class="sapUiMediumMargin">
-
-                        <Title
-                            text="Tourinformationen"
-                            level="H3"/>
-
+                        <ObjectHeader
+                            id="details-card"
+                            title="Tour auswählen"
+                            intro="Bitte eine Tour aus der Tabelle auswählen"/>
+                        <Text id="detailTourId" text="Tour-ID: -"/>
+                        <Text id="detailStart" text="Tour-Start: -"/>
+                        <Text id="detailEnd" text="Tour-Ende: -"/>
+                        <Text id="detailContainer" text="Container: -"/>
+                        <Title text="Status" level="H4" class="sapUiSmallMarginTop"/>
+                        <ObjectStatus id="detailStatus" text="Keine Störung" state="None"/>
+                        <Title text="Störungsgrund" level="H4" class="sapUiSmallMarginTop"/>
                         <Text
-                            id="detailStart"
-                            text="Tour-Start: -"/>
-
-                        <Text
-                            id="detailEnd"
-                            text="Tour-End: -"/>
-
-                        <Text
-                            id="detailContainer"
-                            text="Container: -"/>
-
-                        <Text
-                            id="detailStatus"
-                            text="Status: Nicht hinterlegt"/>
-
+                            id="detailReason"
+                            text="Bitte eine Tour auswählen."
+                            wrapping="true"
+                            renderWhitespace="true"/>
                     </VBox>
-
                 </Panel>
                 <table:Table
                     id="details-table"
                     width="100%"
                     mode="SingleSelectMaster"
                     selectionChange="onSelectionChange"
-                    items="{tours>/tours}"
-                    noDataText="Keine Touren gefunden."
-                    class="sapUiMediumMarginBegin">
+                    items="{tours>/visible}"
+                    autoPopinMode="true"
+                    noDataText="Für diese Route sind keine Touren vorhanden.">
+                    <table:layoutData>
+                        <FlexItemData baseSize="45%" growFactor="1" shrinkFactor="1"/>
+                    </table:layoutData>
+                    <table:headerToolbar>
+                        <Toolbar>
+                            <Title text="Touren" level="H2"/>
+                            <ToolbarSpacer/>
+                            <Text text="{routes>/selectedTourCount}"/>
+                        </Toolbar>
+                    </table:headerToolbar>
                     <table:columns>
-                        <table:Column id="details-table-tour" width="16em">
+                        <table:Column id="details-table-tour" width="6em">
                             <Text text="Tour-ID"/>
                         </table:Column>
-                        <table:Column id="details-table-routestart" width="12em" visible="true">
+                        <table:Column id="details-table-routestart" width="7em" demandPopin="true" minScreenWidth="Tablet">
                             <Text text="Tour-Start"/>
                         </table:Column>
-                        <table:Column id="details-table-routeend" width="12em" visible="true">
+                        <table:Column id="details-table-routeend" width="7em" demandPopin="true" minScreenWidth="Tablet">
                             <Text text="Tour-End"/>
                         </table:Column>
-                        <table:Column id="details-table-container" width="12em" visible="true">
+                        <table:Column id="details-table-container" width="8em" demandPopin="true" minScreenWidth="Tablet">
                             <Text text="Container"/>
                         </table:Column>
-                        <table:Column id="details-table-status" width="12em" visible="true">
+                        <table:Column id="details-table-status" width="6em">
                             <Text text="Status"/>
                         </table:Column>
                     </table:columns>
                     <table:items>
                         <table:ColumnListItem>
                             <table:cells>
-                                <Text text="{tours>id}"/>
+                                <Text text="{tours>shortId}" tooltip="{tours>id}"/>
                                 <Text text="{tours>start}"/>
                                 <Text text="{tours>end}"/>
                                 <Text text="{tours>container}"/>
-                                <Text text="{tours>status}"/>
+                                <ObjectStatus text="{tours>status}" state="{tours>statusState}"/>
                             </table:cells>
                         </table:ColumnListItem>
                     </table:items>
