@@ -60,3 +60,23 @@ entity Eventwarnings {
   key warnstufe:Integer;
       auswirkung:String(100);
 }
+
+
+
+@cds.persistence.exists
+@cds.persistence.name: 'tour_container'
+entity TourContainer {
+  key tour_id: UUID;
+  container: String;
+  source_port_location: String;
+  dest_port_location: String;
+}
+
+@cds.persistence.exists
+@cds.persistence.name: 'tour_spedition'
+entity TourSpedition {
+  key tour_id: UUID;
+  spedition: String;
+  source_port_location: String;
+  dest_port_location: String;
+}

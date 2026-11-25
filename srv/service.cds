@@ -14,4 +14,12 @@ service abat.services {
     entity Eventwarnings as projection on abat.persistence.Eventwarnings;
 
     action getTours() returns array of Tour;
+
+    @cds.persistence.exists
+    @cds.persistence.name: 'tour_container'
+    entity TourContainer as projection on abat.persistence.TourContainer;
+
+    @cds.persistence.exists
+    @cds.persistence.name: 'tour_spedition'
+    entity TourSpedition as projection on abat.persistence.TourSpedition;
 }

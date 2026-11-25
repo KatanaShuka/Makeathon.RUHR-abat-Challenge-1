@@ -1,22 +1,11 @@
-# Getting Started
+# ABAT Lieferketten Frühwarnsystem
 
-Welcome to your new CAP project.
+## DB-Views
 
-It contains these folders and files, following our recommended project layout:
+### tour_spedition
 
-File or Folder | Purpose
----------|----------
-`app/` | content for UI frontends goes here
-`db/` | your domain models and data go here
-`srv/` | your service models and code go here
-`readme.md` | this getting started guide
+Shows the spedition, source and dest port for a tour.
 
-## Next Steps
+### tour_container
 
-- Open a new terminal and run `cds watch`
-- (in VS Code simply choose _**Terminal** > Run Task > cds watch_)
-- Start with your domain model, in a CDS file in `db/`
-
-## Learn More
-
-Learn more at <https://cap.cloud.sap>.
+Shows the container, source and dest port for a tour.
