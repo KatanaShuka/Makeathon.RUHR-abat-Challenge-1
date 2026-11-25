@@ -32,7 +32,7 @@ entity Container {
 }
 
 entity faehrt {
-  key speditions_id:Association to Spedition not null;
+  key spedition_id:Association to Spedition not null;
   key tour_id:Association to Tour not null;
 }
 
@@ -43,9 +43,9 @@ entity Spedition {
 
 entity Event {
   key event_id:UUID;
-      zeitraum_vom:Date not null;
+      zeitraum_von:Date not null;
       zeitraum_bis:Date not null;
-      betroffene_Lokation:Association to Port not null;
+      betroffene_lokation:Association to Port not null;
       warnstufe:Association to Eventwarnings not null;
       event_bezeichnung:Association to Eventcodes not null;
 }
