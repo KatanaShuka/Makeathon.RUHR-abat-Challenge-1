@@ -5,38 +5,76 @@
 
     <VBox id="TestContent" fitContainer="true" width="100%">
         <Label id="L" text="Touren und aktuelle Events" class="TestContentText"/>
-        <geo:GeoMap
-            id="map"
-            width="100%"
-            height="400px"
-            initialPosition="9.9937;53.5511;0"
-            initialZoom="4"
-            xmlns:geo="sap.ui.vbm"
-            mapConfiguration='{
-                "MapProvider": [{
-                    "name": "OpenStreetMap",
-                    "description": "OpenStreetMap",
-                    "copyright": "© OpenStreetMap contributors",
-                    "copyrightLink": "https://www.openstreetmap.org/copyright",
-                    "tileX": "256",
-                    "tileY": "256",
-                    "maxLOD": "19",
-                    "Source": [{
-                        "id": "osm",
-                        "url": "https://tile.openstreetmap.org/{LOD}/{X}/{Y}.png"
-                    }]
-                }],
-                "MapLayerStacks": [{
-                    "name": "DEFAULT",
-                    "MapLayer": {
+        <VBox id="mapFrame" width="100%" class="mapFrame">
+            <geo:GeoMap
+                id="map"
+                width="100%"
+                height="400px"
+                initialPosition="9.9937;53.5511;0"
+                initialZoom="4"
+                xmlns:geo="sap.ui.vbm"
+                mapConfiguration='{
+                    "MapProvider": [{
                         "name": "OpenStreetMap",
-                        "refMapProvider": "OpenStreetMap",
-                        "opacity": "1"
-                    }
-                }]
-            }'
-            refMapLayerStack="DEFAULT">
-        </geo:GeoMap>
+                        "description": "OpenStreetMap",
+                        "copyright": "© OpenStreetMap contributors",
+                        "copyrightLink": "https://www.openstreetmap.org/copyright",
+                        "tileX": "256",
+                        "tileY": "256",
+                        "maxLOD": "19",
+                        "Source": [{
+                            "id": "osm",
+                            "url": "https://tile.openstreetmap.org/{LOD}/{X}/{Y}.png"
+                        }]
+                    }],
+                    "MapLayerStacks": [{
+                        "name": "DEFAULT",
+                        "MapLayer": {
+                            "name": "OpenStreetMap",
+                            "refMapProvider": "OpenStreetMap",
+                            "opacity": "1"
+                        }
+                    }]
+                }'
+                refMapLayerStack="DEFAULT">
+            </geo:GeoMap>
+        </VBox>
+        <Table
+            id="routesTable"
+            class="routesTable"
+            items="{map>/routes}"
+            growing="true"
+            growingScrollToLoad="false">
+            <headerToolbar>
+                <Toolbar>
+                    <Title text="Verfügbare Routen" level="H2"/>
+                </Toolbar>
+            </headerToolbar>
+            <columns>
+                <Column width="10rem">
+                    <Text text="Route"/>
+                </Column>
+                <Column>
+                    <Text text="Tourfolge"/>
+                </Column>
+                <Column>
+                    <Text text="Strecke"/>
+                </Column>
+                <Column width="7rem" hAlign="End">
+                    <Text text="Touren"/>
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem vAlign="Middle">
+                    <cells>
+                        <Text text="{map>routeId}"/>
+                        <Text text="{map>tourSequence}"/>
+                        <Text text="{map>stops}"/>
+                        <ObjectNumber number="{map>tourCount}"/>
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
     </VBox>
 
     </Page>
