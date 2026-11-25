@@ -45,15 +45,14 @@ entity Event {
   key event_id:UUID;
       zeitraum_vom:Date not null;
       zeitraum_bis:Date not null;
+      betroffene_Lokation:Association to Port not null;
+      warnstufe:Association to Eventwarnings not null;
+      event_bezeichnung:Association to Eventcodes not null;
 }
 
 entity Eventcodes {
   key bezeichnung:String(3);
       ereignis:String(100) not null;
-      betroffene_Lokation:Association to Port not null;
-      @assert.range: [1,3]
-      warnstufe:Integer;
-      event_bezeichnung:String(3);
 }
 
 entity Eventwarnings {
